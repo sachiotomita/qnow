@@ -1,14 +1,15 @@
 <template>
   <form>
-    <input id="search-form" type="text" /><button type="button"><font-awesome-icon icon="search" /></button>
+    <input id="search-form" type="text" v-model="tagname" /><button type="button" @click.stop="$emit('set', (tagname))"><font-awesome-icon icon="search" /></button>
   </form>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Emit } from 'vue-property-decorator';
 
 @Component
 export default class Search extends Vue {
+  tagname: string = ""
 }
 </script>
 
