@@ -2,8 +2,6 @@
   <div>
     <Header />
     <div id="app">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
       <router-view/>
     </div>
     
@@ -28,7 +26,7 @@ html, body {
   padding: 0;
 }
 #app {
-  width: 40%;
+  width: 30%;
   margin: 0 auto;
 }
 /*#nav {
