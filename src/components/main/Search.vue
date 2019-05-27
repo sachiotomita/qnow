@@ -14,16 +14,26 @@ export default class Search extends Vue {
 
 <style lang="scss" scoped>
 form {
+  margin-bottom: 40px;
   #search-form {
+    border: 0;
     width: 90%;
     height: 40px;
     padding: 15px;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
     box-sizing: border-box;
+    &:focus {
+      outline: none;
+    }
   }
   button {
     width: 10%;
     height: 40px;
+    padding: 10px;
     border: none;
+    background-color: #2196F3;
+    color: #fff;
     box-sizing: border-box;
   }
 }

@@ -18,3 +18,8 @@ export default class Main extends Vue {
 }
 </script>
 
+<style lang="scss" scoped>
+main {
+  margin-top: 90px;
+}
+</style>
