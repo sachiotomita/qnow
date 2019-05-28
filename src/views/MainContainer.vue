@@ -1,7 +1,7 @@
 <template>
   <main>
     <SearchItems @set="fetchItems" :tagname="tagname" />
-    <div v-if="isLoading">Loading...</div>
+    <LoadingAnimation v-if="isLoading" />
     <ul class="items" v-if="!isLoading">
       <QiitaItem v-for="item in items" :key="item.id" :item="item" @set="fetchItems" />
     </ul>
@@ -11,7 +11,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import SearchItems from '@/components/main/SearchItems.vue';
-import QiitaItem from '@/components/main/QiitaItem.vue'
+import QiitaItem from '@/components/main/QiitaItem.vue';
+import LoadingAnimation from '@/components/LoadingAnimation.vue';
 import axios from 'axios';
 import filterTag from '@/assets/ts/filterItem.ts';
 
@@ -19,6 +20,7 @@ import filterTag from '@/assets/ts/filterItem.ts';
   components: {
     SearchItems,
     QiitaItem,
+    LoadingAnimation,
   },
 })
 export default class MainContainer extends Vue {
