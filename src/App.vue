@@ -28,6 +28,7 @@ html, body {
 #app {
   width: 30%;
   margin: 0 auto;
+  font-family: YuGothicM; 
 }
 /**
 * sp

@@ -26,6 +26,7 @@ form {
     padding: 15px;
     font-size: 1.2em;
     border: 1px solid #ccc;
+    border-radius: 0;
     box-sizing: border-box;
     &:focus {
       outline: none;
