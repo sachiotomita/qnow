@@ -15,6 +15,8 @@ export default class SearchItems extends Vue {
 
 <style lang="scss" scoped>
 form {
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin-bottom: 40px;
   #search-form {
@@ -30,8 +32,8 @@ form {
     }
   }
   button {
-    width: 10%;
-    height: 40px;
+    width: 50px;
+    height:40px;
     padding: 10px;
     border: none;
     background-color: #2196F3;
