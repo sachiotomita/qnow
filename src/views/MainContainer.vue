@@ -39,6 +39,10 @@ export default class MainContainer extends Vue {
     .then(():void => {
       this.isLoading = false;
     })
+    .catch(() => {
+      this.items = [];
+      this.isLoading = false;
+    })
   }
 }
 </script>
