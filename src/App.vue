@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <SharedHeader />
     <div id="app">
       <router-view/>
     </div>
@@ -10,11 +10,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Header from '@/components/Header.vue';
+import SharedHeader from '@/components/SharedHeader.vue';
 
 @Component({
   components: {
-    Header,
+    SharedHeader,
   },
 })
 export default class App extends Vue {}

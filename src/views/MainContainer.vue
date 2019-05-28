@@ -1,27 +1,27 @@
 <template>
   <main>
-    <Search @set="fetchItems" />
+    <SearchItems @set="fetchItems" />
     <div v-if="isLoading">Loading...</div>
     <ul class="items" v-if="!isLoading">
-      <Item v-for="item in items" :key="item.id" :item="item" />
+      <QiitaItem v-for="item in items" :key="item.id" :item="item" />
     </ul>
   </main>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Search from '@/components/main/Search.vue';
-import Item from '@/components/main/Item.vue'
+import SearchItems from '@/components/main/SearchItems.vue';
+import QiitaItem from '@/components/main/QiitaItem.vue'
 import axios from 'axios';
 import filterTag from '@/assets/ts/filterItem.ts';
 
 @Component({
   components: {
-    Search,
-    Item,
+    SearchItems,
+    QiitaItem,
   },
 })
-export default class Main extends Vue {
+export default class MainContainer extends Vue {
   items: string[] = [];
   isLoading: boolean = false;
   async  fetchItems(tagname: string) {
