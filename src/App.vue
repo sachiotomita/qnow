@@ -29,6 +29,38 @@ html, body {
   width: 30%;
   margin: 0 auto;
 }
+/**
+* sp
+*/
+@media screen and (max-width: 480px) {
+  #app {
+    width: 90vw;
+  }
+}
+/**
+* sp(横)
+*/
+@media screen and (min-width: 481px) and (max-width: 600px) {
+  #app {
+    width: 85vw;
+  }
+}
+/**
+* タブレット
+*/
+@media screen and (min-width: 601px) and (max-width: 960px) {
+  #app {
+    width: 80vw;
+  }
+}
+/**
+* iPad Pro
+*/
+@media screen and (min-width: 961px) and (max-width: 1024px) {
+  #app {
+    width: 60vw;
+  }
+}
 /*#nav {
   padding: 30px;
   a {
