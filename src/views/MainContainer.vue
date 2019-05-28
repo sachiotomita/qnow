@@ -1,9 +1,9 @@
 <template>
   <main>
-    <SearchItems @set="fetchItems" />
+    <SearchItems @set="fetchItems" :tagname="tagname" />
     <div v-if="isLoading">Loading...</div>
     <ul class="items" v-if="!isLoading">
-      <QiitaItem v-for="item in items" :key="item.id" :item="item" />
+      <QiitaItem v-for="item in items" :key="item.id" :item="item" @set="fetchItems" />
     </ul>
   </main>
 </template>
@@ -22,11 +22,13 @@ import filterTag from '@/assets/ts/filterItem.ts';
   },
 })
 export default class MainContainer extends Vue {
+  tagname: string = '';
   items: string[] = [];
   isLoading: boolean = false;
   async  fetchItems(tagname: string) {
+    this.tagname = tagname;
     this.isLoading = true;
-    const url: string = 'https://qiita.com/api/v2/tags/' + tagname + '/items?per_page=50';
+    const url: string = 'https://qiita.com/api/v2/tags/' + this.tagname + '/items?per_page=50';
     await axios.get(url)
     .then((res: any): void => {
       this.items = filterTag(res.data);

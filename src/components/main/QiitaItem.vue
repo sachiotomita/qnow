@@ -3,7 +3,7 @@
     <div class="item__title"><a :href="item.url">{{ item.title }}</a></div>
     <div class="item__created">{{ item.created_at }}</div>
     <div class="item__likescount">いいね：{{ item.likes_count }}</div>
-    <button type="button" v-for="tag in item.tags" :key="tag.id">{{ tag.name }}</button>
+    <button type="button" v-for="tag in item.tags" :key="tag.id" @click="$emit('set', tag.name)">{{ tag.name }}</button>
   </li>
 </template>
 
@@ -39,11 +39,15 @@ export default class QiitaItem extends Vue {
     padding-bottom: 7px;
   }
   button {
+    vertical-align: middle;
+    height: 30px;
     margin-right: 6px;
+    margin-bottom: 5px;
     padding: 6px;
     background-color: #2196F3;
     color: #fff;
     border: none;
+    box-sizing: border-box;
   }
 }
 </style>
