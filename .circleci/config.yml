@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.15.3
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+        # 復元するキャッシュのkey
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      # 依存関係インストール
+      - run:
+          name: Install Project
+          command: npm install
+      
+      # ビルド
+      - run:
+          name: Build
+          command: npm run build
+        
+      # ビルドの確認  
+      - run:
+          name: Check dist
+          command: ls -la dist
+      
+      # キャッシュの保存
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Install Firebase-tools
+          command: npm install --save-dev firebase-tools
+      
+      - run:
+          name: Deploy to Firebase hosting
+          command: ./node_modules/.bin/firebase deploy --project "$FIREBASE_PROJECT_ID" --token "$FIREBASE_DEPLOY_TOKEN"      
