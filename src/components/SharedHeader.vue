@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav>
-      <div class="site-logo">Qnow</div>
+      <router-link to="/" class="site-logo">Qnow</router-link>
     </nav>
   </header>
 </template>
@@ -25,9 +25,13 @@ header {
   border-bottom: 1px solid #eee;
   box-shadow: 2px 2px 3px #ccc;
   nav {
+    position: relative;
     width: 800px;
     margin: 0 auto;
     .site-logo {
+      position: absolute;
+      top: 8px;
+      left: 10px;
       font-size: 25px;
       color: #2196F3;
 
