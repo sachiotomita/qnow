@@ -23,7 +23,7 @@ header {
   height: 60px;
   background-color: #fff;
   border-bottom: 1px solid #eee;
-  box-shadow: 2px 2px 3px #ccc;
+  box-shadow: 2px 2px 3px #eee;
   nav {
     position: relative;
     width: 800px;

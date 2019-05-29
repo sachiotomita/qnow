@@ -24,25 +24,24 @@ import filterTag from '@/assets/ts/filterItem.ts';
   },
 })
 export default class MainContainer extends Vue {
-  tagname: string = '';
-  items: string[] = [];
-  isLoading: boolean = false;
-  async  fetchItems(tagname: string) {
+  public tagname: string = '';
+  private items: string[] = [];
+  private isLoading: boolean = false;
+  public fetchItems(tagname: string) {
     this.tagname = tagname;
     this.isLoading = true;
     const url: string = 'https://qiita.com/api/v2/tags/' + this.tagname + '/items?per_page=50';
-    await axios.get(url)
+    axios.get(url)
     .then((res: any): void => {
       this.items = filterTag(res.data);
-      console.log(this.items);
     })
-    .then(():void => {
+    .then((): void => {
       this.isLoading = false;
     })
     .catch(() => {
       this.items = [];
       this.isLoading = false;
-    })
+    });
   }
 }
 </script>

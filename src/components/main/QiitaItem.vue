@@ -12,7 +12,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component
 export default class QiitaItem extends Vue {
-  @Prop() private item!: any;
+  @Prop() private item!: { key: string };
 }
 </script>
 
@@ -24,7 +24,7 @@ export default class QiitaItem extends Vue {
   border: 1px solid #eee;
   border-radius: 7px;
   list-style: none;
-  box-shadow: 2px 2px 2px #ccc; 
+  box-shadow: 2px 2px 2px #eee; 
   box-sizing: border-box;
   &__title {
     padding-bottom: 10px;

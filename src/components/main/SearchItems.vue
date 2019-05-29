@@ -1,6 +1,6 @@
 <template>
   <form v-on:submit.prevent="$emit('set', tagname)">
-    <input id="search-form" type="text" v-model="tagname" /><button type="submit"><font-awesome-icon icon="search" /></button>
+    <input id="search-form" type="text" v-model="tagname" placeholder="tag name" /><button type="submit"><font-awesome-icon icon="search" /></button>
   </form>
 </template>
 
@@ -9,7 +9,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component
 export default class SearchItems extends Vue {
-  @Prop() tagname !: string;
+  @Prop() public tagname !: string;
 }
 </script>
 
